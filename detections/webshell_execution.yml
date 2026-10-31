@@ -1,0 +1,17 @@
+title: Web Shell Remote Command Execution via HTTP URI
+id: 3a380546-8d19-420b-8197-5a24dc8f8c4d
+description: The SPL query detects remote command execution attemtps passing system commands through web application query strings.
+author: Kamo-cyber
+logsource:
+  category: webserver
+
+detection:
+  selecion:
+    uri|contains: 'cmd='
+  filter:
+    uri|contains: 'debugger'
+  condition: Selection and not filter
+
+tags:
+- 'attack.execution'
+- 'attack.T1059'

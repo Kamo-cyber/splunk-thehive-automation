@@ -1,0 +1,22 @@
+title: High Volume Port Scanning Detected
+id : e0a6d425-23de-4137-9763-c9a813d27a2e
+status: experimental
+description: The Splunk SIEM captured an abnormal baseline deviation of expected requests per source ip. The source ip has not only made thousands of requests but has also targeted thousands of distinct ports.
+author:  Kamo-cyber
+logsource: 
+  category: network_traffic
+  definition: 'Requires stream:http or stream:tcp data ingestion'
+detection:
+  selection:
+    sourcetype:
+      - 'stream:http'
+      - 'stream:tcp'
+  condition: selection | count(dest_port) by src_ip > 100 and dc(dest_port) by src_ip > 50
+
+falsepositives:
+  - Active internal vulnerability scanners
+  - Aggressive load balancers or network management tools
+level: medium
+tags:
+  - attack.reconnaissance
+  - attack.T1595

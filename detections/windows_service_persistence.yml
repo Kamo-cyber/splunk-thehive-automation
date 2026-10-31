@@ -1,0 +1,16 @@
+title: New Windows Service Creation Detected
+id: 2d690612-f1b1-4417-ae43-2e22c442e3bb
+description: The SPL query detects the registration of new system services via the Windows Security Event ID 4697. This identification includes the Service_Name, Service_File_Name, and Account_Name. 
+author: Kamo-cyber
+logsource:
+  product: Windows
+  service: security
+
+detection:
+  selection:
+    EventID: 4697
+  condition: selection
+
+tags: 
+  - 'attack.persistence'
+  - 'attack.T1543.003'
