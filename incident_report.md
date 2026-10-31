@@ -13,7 +13,7 @@ The incident was initially identified through advanced Splunk filtering with the
 | 22:31, Oct 28 | Automated pipeline triggered: Splunk alert fired, enriched via VirusTotal, ingested into TheHive as alert #12296 |
 | [threat intelligence (Mitre Att&ck Navigator) timestamp, ~ 22:10 Oct 29] | After the VirusTotal threat investigation. Mitre Att&ck Navigator had been utalized to further investigate, accurately understand and make a professional and evidence based judement on how servere and sophisticated the attack may be. |
 | Thu, 29 Oct 2026 19:37:51 GMT | SQL Injection confirmed — payload `' OR '1'='1` submitted to `/vulnerabilities/sqli/` endpoint on 192.168.56.103, captured via Wireshark |
-| [same timestamp or shortly after] | Server returned full contents of users table (5 records) instead of single requested record — confirms successful exploitation |
+| same timestamp or shortly after | Server returned full contents of users table (5 records) instead of single requested record — confirms successful exploitation |
 | decoding timestamp, ~22:05 Oct 29 | To decode the specific wireshark logged traffic, CyberChef was used to decode the specific string within the url/traffic using the URL Decode feature, which decoded the URL into `' OR '1'='1`. This  further confirmed a critical indicator of compromise.
 
 
